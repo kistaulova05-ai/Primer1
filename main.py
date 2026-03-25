@@ -149,7 +149,7 @@ from sympy import *
 
 k, T, C, L = symbols('k C T L')
 
-C_ost_4 = 1000000
+C_ost_4 = 100000
 Am_lst_4 = []
 C_ost_lst_4 = []
 for i in range(15):
