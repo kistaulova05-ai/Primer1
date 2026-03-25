@@ -149,26 +149,26 @@ from sympy import *
 
 k, T, C, L = symbols('k C T L')
 
-C_ost_4 = 100000
+C_ost_4 = 15000
 Am_lst_4 = []
 C_ost_lst_4 = []
-for i in range(15):
+for i in range(8):
     Am = (C - L) / T
-    C_ost_4 -= Am.subs({C: 1000000, T: 15, L: 0})
-    Am_lst_4.append(round(Am.subs({C: 1000000, T: 15, L: 0}), 2))
+    C_ost_4 -= Am.subs({C: 15000, T: 8, L: 0})
+    Am_lst_4.append(round(Am.subs({C: 15000, T: 8, L: 0}), 2))
     C_ost_lst_4.append(round(C_ost_4, 2))
 print('Am_lst_4:', Am_lst_4)
 print('C_ost_lst_4:', C_ost_lst_4)
 
 #2-ой способ (индивидуальное задание)
 Aj = 0
-C_ost_4 = 1000000
+C_ost_4 = 15000
 Am_lst_2_4 = []
 C_ost_lst_2_4 = []
-for i in range(15):
+for i in range(8):
     Am = k * 1 / T * (C - Aj)
-    C_ost_4 -= Am.subs({C: 1000000, T: 15, k: 2})
-    Am_lst_2_4.append(round(Am.subs({C: 1000000, T: 15, k: 2}), 2))
+    C_ost_4 -= Am.subs({C: 15000, T: 8, k: 2})
+    Am_lst_2_4.append(round(Am.subs({C: 15000, T: 8, k: 2}), 2))
     Aj += Am
     C_ost_lst_2_4.append(round(C_ost_4, 2))
 print('Am_lst_2_4:', Am_lst_2_4)
@@ -177,7 +177,7 @@ print('C_ost_lst_2_4:', C_ost_lst_2_4)
 #Таблица (индивидуальное задание)
 import pandas as pd
 
-Y = range(1, 16)
+Y = range(1, 9)
 table1 = list(zip(Y, C_ost_lst_4, Am_lst_4))
 table2 = list(zip(Y, C_ost_lst_2_4, Am_lst_2_4))
 tframe = pd.DataFrame(table1, columns=['Y', 'C_ost_lst_4', 'Am_lst_4'])
@@ -198,8 +198,8 @@ plt.savefig('chart8.png')
 
 #Круговая диаграмма (индивидуальное задание)
 vals = Am_lst_4
-labels = [str(x) for x in range(1, 16)]
-explode = (0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,0.1, 0.1, 0.1,0.1, 0.1,0.1, 0.1, 0.1)
+labels = [str(x) for x in range(1, 9)]
+explode = (0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,0.1)
 fig, ax = plt.subplots()
 ax.pie(vals,
        labels=labels,
@@ -217,8 +217,8 @@ plt.savefig('chart9.png') #Что значит? Сохраняет график 
 
 #Круговая диаграмма (данные от 2-го способа)
 vals = Am_lst_2_4
-labels = [str(x) for x in range(1, 16)]
-explode = (0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,0.1,0.1, 0.1, 0.1, 0.1,0.1, 0.1, 0.1)
+labels = [str(x) for x in range(1, 9)]
+explode = (0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,0.1)
 fig, ax = plt.subplots()
 ax.pie(vals,
        labels=labels,
