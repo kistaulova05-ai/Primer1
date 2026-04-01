@@ -208,5 +208,19 @@
     "ssid": "NetLink",
     "pin_tried": "59699105",
     "success": false
+  },
+  {
+    "timestamp": "2026-03-29 09:46:17",
+    "mac": "AA:BB:CC:16:4F:4A",
+    "ssid": "NetLink",
+    "pin_tried": "59699105",
+    "success": true
+  },
+  {
+    "timestamp": "2026-03-29 08:49:17",
+    "mac": "AA:BB:CC:16:4F:4A",
+    "ssid": "NetLink",
+    "pin_tried": "59699105",
+    "success": false
   }
 ]

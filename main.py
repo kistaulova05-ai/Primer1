@@ -134,7 +134,7 @@ import json
 import sys
 import os
 
-BLOCK_THRESHOLD = int(os.environ.get("BLOCK_THRESHOLD", 5))
+BLOCK_THRESHOLD = int(os.environ['BLOCK_THRESHOLD'])
 LOG_FILE        = "1.json"
 FAILED_LOG_FILE = "2.json"
 CHART_FILE      = "report.png"
@@ -222,11 +222,11 @@ def print_summary(df, fails, blocked):
 
     fail_values = fails.values
 
-    print(f"\n  Всего попыток: {len(df)}")
+    print(f"\n  Всего попыток ввода PIN: {len(df)}")
     print(f"  Уникальных MAC-адресов: {df['mac'].nunique()}")
     print(f"  Заблокировано устройств: {len(blocked)}")
-    print(f"  Среднее неудачных попыток: {np.mean(fail_values):.1f}")
-    print(f"  Максимально неудачных попыток: {np.max(fail_values)}")
+    print(f"  Среднее неудачных попыток ввода PIN: {np.mean(fail_values):.1f}")
+    print(f"  Максимально неудачных попыток ввода PIN: {np.max(fail_values)}")
 
     if blocked:
         print(" Заблокированные устройства:")
